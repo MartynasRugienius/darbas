@@ -1,0 +1,32 @@
+@extends('layouts.default')
+@section('content')
+<div class="container-fluid mt-3">
+    <div class="text-center">
+        <a class="btn btn-danger" href="countries/new" role="button">New country</a>
+        <a class="btn btn-danger" href="" role="button">Countries without airlines</a>
+        <a class="btn btn-danger" href="" role="button">Countries without airlines and airports</a>
+    </div>
+    <hr>
+    <div class="d-grid gap-2 mx-auto mt-2">
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Lithuania</th>
+                    <td>1234</td>
+                    <td>
+                        <a class="btn btn-warning" href="countries/edit" role="button">Edit</a>
+                        <a class="btn btn-danger" href="countries/delete" role="button">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@endsection
