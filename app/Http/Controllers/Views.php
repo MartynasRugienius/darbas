@@ -8,7 +8,7 @@ class Views extends Controller
 {
     
     public function index(){
-        return view("welcome");
+        return redirect("/airports");
     }
 
     public function airports(){
