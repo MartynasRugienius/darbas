@@ -17,14 +17,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">Lithuania</th>
-                    <td>1234</td>
-                    <td>
-                        <a class="btn btn-warning" href="countries/edit" role="button">Edit</a>
-                        <a class="btn btn-danger" href="countries/delete" role="button">Delete</a>
-                    </td>
-                </tr>
+                @foreach($countries as $country)
+                    <tr>
+                        <th scope="row">{{$country->name}}</th>
+                        <td>{{$country->ISO}}</td>
+                        <td>
+                            <a class="btn btn-warning" href="countries/edit" role="button">Edit</a>
+                            <a class="btn btn-danger" href="countries/delete" role="button">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

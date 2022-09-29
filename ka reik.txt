@@ -1,0 +1,4 @@
+perduot ID is route
+gauti viena record is database pagal ID
+updatinti kas pakeista
+deletinti recorda pagal ID

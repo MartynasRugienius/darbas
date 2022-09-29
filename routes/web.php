@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Countries;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Views;
 
@@ -39,7 +40,9 @@ Route::get('/countries/edit', [Views::class, "edit_countries"]);
 
 Route::get('/countries/delete', [Views::class, "delete_countries"]);
 
+Route::post('/add_countries',[Countries::class, "create"]);
 
+Route::put('/country/{id}', [Country::class, "update"]);
 
 
 Route::get('/airlines', [Views::class, "airlines"]);

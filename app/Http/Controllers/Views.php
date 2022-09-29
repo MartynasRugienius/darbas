@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Countries;
 use Illuminate\Http\Request;
 
 class Views extends Controller
@@ -16,7 +17,10 @@ class Views extends Controller
     }
 
     public function countries(){
-        return view("countries");
+
+        $countries = Countries::all();
+
+        return view("countries", ['countries' => $countries]);
     }
 
     public function airlines(){
@@ -44,6 +48,8 @@ class Views extends Controller
     }
 
     public function edit_countries(){
+        
+
         return view("edit_countries");
     }
 
