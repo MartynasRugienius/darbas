@@ -46,7 +46,7 @@ Route::post('/add_countries',[Countries::class, "create"]);
  * Route {id} tai yra tas kur mes turim funkcijoje papildoma variable pavadinimu id
  */
 
-Route::post('/country/update/{id}', [Country::class, "update"]);
+Route::post('/country/update/{id}', [Countries::class, "update"]);
 
 Route::post('/country/delete/{id}', [Countries::class, "delete"]);
 

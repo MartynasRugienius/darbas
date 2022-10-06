@@ -10,6 +10,7 @@
         cia mes iskvieciam post methoda action tai yra routas ir reikia id irasyt kuri mes turim
         --}}
     <form action="/country/delete/{{$id}}" method="POST" class="text-center">
+        @csrf
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="submit" class="btn btn-danger btn-lg">Yes</button>
             <a href="/countries" role="button" class="btn btn-success btn-lg">No</a>
