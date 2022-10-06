@@ -22,8 +22,8 @@
                         <th scope="row">{{$country->name}}</th>
                         <td>{{$country->ISO}}</td>
                         <td>
-                            <a class="btn btn-warning" href="countries/edit" role="button">Edit</a>
-                            <a class="btn btn-danger" href="countries/delete" role="button">Delete</a>
+                            <a class="btn btn-warning" href="/countries/edit/{{$country->id}}" role="button">Edit</a>
+                            <a class="btn btn-danger" href="/countries/delete/{{$country->id}}" role="button">Delete</a>
                         </td>
                     </tr>
                 @endforeach

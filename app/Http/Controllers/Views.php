@@ -17,9 +17,16 @@ class Views extends Controller
     }
 
     public function countries(){
-
+        /**
+         * Cia mes grazinam visus recordus is database
+         * susijusius su countries
+         */
         $countries = Countries::all();
 
+        /**
+         * Tada mes perduodam visa data kuria gavom i frontend pvz:
+         * view(html file pavadinimas, ["pavadinimas kuri naudosim html file" => $variable kur yra tai])
+         */
         return view("countries", ['countries' => $countries]);
     }
 
@@ -47,14 +54,20 @@ class Views extends Controller
         return view("delete_airports");
     }
 
-    public function edit_countries(){
-        
-
-        return view("edit_countries");
+    public function edit_countries($id){
+        /**
+         * Paimam viena record is database pagal id kuri mes editinam
+         */
+        $country = Countries::find($id);
+    
+        /**
+         * Grazinam data i frontend kuria mes turim
+         */
+        return view("edit_countries", ['country' => $country]);
     }
 
-    public function delete_countries(){
-        return view("delete_countries");
+    public function delete_countries($id){
+        return view("delete_countries", ['id' => $id]);
     }
 
     public function add_countries(){

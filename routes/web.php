@@ -36,13 +36,19 @@ Route::get('/countries', [Views::class, "countries"]);
 
 Route::get('/countries/new', [Views::class, "add_countries"]);
 
-Route::get('/countries/edit', [Views::class, "edit_countries"]);
+Route::get('/countries/edit/{id}', [Views::class, "edit_countries"]);
 
-Route::get('/countries/delete', [Views::class, "delete_countries"]);
+Route::get('/countries/delete/{id}', [Views::class, "delete_countries"]);
 
 Route::post('/add_countries',[Countries::class, "create"]);
 
-Route::put('/country/{id}', [Country::class, "update"]);
+/**
+ * Route {id} tai yra tas kur mes turim funkcijoje papildoma variable pavadinimu id
+ */
+
+Route::post('/country/update/{id}', [Country::class, "update"]);
+
+Route::post('/country/delete/{id}', [Countries::class, "delete"]);
 
 
 Route::get('/airlines', [Views::class, "airlines"]);
