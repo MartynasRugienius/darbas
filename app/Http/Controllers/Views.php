@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Airlines;
 use App\Models\Countries;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class Views extends Controller
 
     public function countries(){
         /**
-         * Cia mes grazinam visus recordus is database
+         * Cia mes gaunam visus recordus is database
          * susijusius su countries
          */
         $countries = Countries::all();
@@ -31,7 +32,10 @@ class Views extends Controller
     }
 
     public function airlines(){
-        return view("airlines");
+
+        $airlines = Airlines::all();
+
+        return view("airlines", ['airlines' => $airlines]);
     }
 
     public function add_airports(){
@@ -83,7 +87,9 @@ class Views extends Controller
     }
 
     public function create_airlines(){
-        return view("create_airlines");
+        $countries = Countries::all();
+
+        return view("create_airlines", ['countries' => $countries]);
     }
 
 

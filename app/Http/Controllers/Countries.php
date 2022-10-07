@@ -25,7 +25,7 @@ class Countries extends Controller
         ]);
 
         /**
-         * Darai nauja variable $county ar kitu pavadinimu
+         * Darai nauja variable $country ar kitu pavadinimu
          * Tada padarai ModelPavadinimas::create([
          *      cia rasai ka prideti
          *      'pavadinimas ka prideti' => $request->pavadinimas

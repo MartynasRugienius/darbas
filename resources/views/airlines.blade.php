@@ -15,14 +15,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($airlines as $airline)
                 <tr>
-                    <th scope="row">Vilius airlines</th>
+                    <th scope="row">{{$airline->name}}</th>
                     <td>Lithuania</td>
                     <td>
                         <a class="btn btn-warning" href="airlines/edit" role="button">Edit</a>
                         <a class="btn btn-danger" href="airlines/delete" role="button">Delete</a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

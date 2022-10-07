@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Airlines;
 use App\Http\Controllers\Countries;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Views;
@@ -40,15 +41,22 @@ Route::get('/countries/edit/{id}', [Views::class, "edit_countries"]);
 
 Route::get('/countries/delete/{id}', [Views::class, "delete_countries"]);
 
-Route::post('/add_countries',[Countries::class, "create"]);
+
 
 /**
  * Route {id} tai yra tas kur mes turim funkcijoje papildoma variable pavadinimu id
  */
 
+ /**
+  * Post methods
+  */
 Route::post('/country/update/{id}', [Countries::class, "update"]);
 
 Route::post('/country/delete/{id}', [Countries::class, "delete"]);
+
+Route::post('/add_countries',[Countries::class, "create"]);
+
+
 
 
 Route::get('/airlines', [Views::class, "airlines"]);
@@ -60,5 +68,7 @@ Route::get('/airlines/edit', [Views::class, "edit_airlines"]);
 Route::get('/airlines/delete', [Views::class, "delete_airlines"]);
 
 // Auth::routes();
+
+Route::post('/airlines/add', [Airlines::class, "create"]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
