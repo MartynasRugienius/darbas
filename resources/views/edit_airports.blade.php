@@ -5,7 +5,7 @@
         <h1>Let's edit Kaunas airport airport!</h1>
     </div>
     <hr>
-    <form action method="POST">
+    <form action="" method="POST">
         <div class="d-grid gap-2 mx-auto mt-2">
             <label for="name" class="form-label">Name</label>
             <input class="form-control" type="text" placeholder="Name">

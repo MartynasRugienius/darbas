@@ -42,7 +42,8 @@ class Views extends Controller
         return view("add_airports");
     }
 
-    public function edit_airports(){
+    public function edit_airports($id){
+        
         return view("edit_airports");
     }
 
@@ -78,12 +79,15 @@ class Views extends Controller
         return view("add_countries");
     }
 
-    public function edit_airlines(){
-        return view("edit_airlines");
+    public function edit_airlines($id){
+
+        $airline = Airlines::find($id);
+        $countries = Countries::all();
+        return view("edit_airlines", ['airline' => $airline, 'countries' => $countries]);
     }
 
-    public function delete_airlines(){
-        return view("delete_airlines");
+    public function delete_airlines($id){
+        return view("delete_airlines", ['id' => $id]);
     }
 
     public function create_airlines(){

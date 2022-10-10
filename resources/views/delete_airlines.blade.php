@@ -6,7 +6,8 @@
         <p>This action will remove all associations with airports</p>
     </div>
     <hr>
-    <form action method="POST" class="text-center">
+    <form action="/airlines/delete/{{ $id }}" method="POST" class="text-center">
+        @csrf
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="submit" class="btn btn-danger btn-lg">Yes</button>
             <a href="/airlines" role="button" class="btn btn-success btn-lg">No</a>

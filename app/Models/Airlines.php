@@ -12,4 +12,9 @@ class Airlines extends Model
     protected $table = 'airlines';
 
     protected $fillable = ['name', 'countries_id', 'created_at', 'updated_at'];
+
+
+    public function country(){
+        return $this->belongsTo(Countries::class, 'id');
+    }
 }

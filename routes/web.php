@@ -63,12 +63,16 @@ Route::get('/airlines', [Views::class, "airlines"]);
 
 Route::get('/airlines/new', [Views::class, "create_airlines"]);
 
-Route::get('/airlines/edit', [Views::class, "edit_airlines"]);
+Route::get('/airlines/edit/{id}', [Views::class, "edit_airlines"]);
 
-Route::get('/airlines/delete', [Views::class, "delete_airlines"]);
+Route::get('/airlines/delete/{id}', [Views::class, "delete_airlines"]);
 
 // Auth::routes();
 
 Route::post('/airlines/add', [Airlines::class, "create"]);
+
+Route::post('airlines/update/{id}', [Airlines::class, "update"]);
+
+Route::post('/airlines/delete/{id}', [Airlines::class, "delete"]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -77,7 +77,7 @@ class Countries extends Controller
          * Jei nepakeite tada jie nepasikeis
          */
 
-        $country->name  = $request->name;
+        $country->name  = $request->name;   
         $country->ISO   = $request->ISO;
 
         /**

@@ -12,4 +12,8 @@ class Countries extends Model
     protected $table = 'countries';
 
     protected $fillable = ['name', 'ISO', 'created_at', 'updated_at'];
+
+    public function airlines(){
+        return $this->hasMany(Airlines::class, 'countries_id');
+    }
 }
