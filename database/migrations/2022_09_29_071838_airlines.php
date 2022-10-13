@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('airlines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('countries_id');
+            $table->integer('countries_id');
             $table->timestamps();
         });
     }

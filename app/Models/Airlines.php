@@ -15,6 +15,6 @@ class Airlines extends Model
 
 
     public function country(){
-        return $this->belongsTo(Countries::class, 'id');
+        return $this->belongsTo(Countries::class, 'countries_id');
     }
 }

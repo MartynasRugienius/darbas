@@ -28,19 +28,21 @@
         </tr>
       </thead>
       <tbody>
+        @foreach ($airports as $airport)
         <tr>
-          <th scope="row">Kaunas airport</th>
-          <td>Lithuania</td>
-          <td>23.90926605959683 54.91429115918484</td>
+          <th scope="row">{{$airport->name}}</th>
+          <td>{{$airport->country->name}}</td>
+          <td>{{$airport->coords}}</td>
           <td>
             Vilius airlines
           </td>
           <td>
             <a class="btn btn-success" href="/airports/newAirline" role="button">Add airline</a>
             <a class="btn btn-danger" href="/airports/removeAirline" role="button">Remove airline</a>
-            <a class="btn btn-warning" href="/airports/edit" role="button">Edit</a>
-            <a class="btn btn-danger" href="/airports/delete" role="button">Delete</a>
+            <a class="btn btn-warning" href="/airports/edit/{{$airport->id}}" role="button">Edit</a>
+            <a class="btn btn-danger" href="/airports/delete/{{$airport->id}}" role="button">Delete</a>
           </td>
+        @endforeach
         </tr>
       </tbody>
     </table>

@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Airports extends Model
-{
+ {
     use HasFactory;
 
     protected $table = 'airports';
 
-    protected $fillable = ['name', 'country', 'lat', 'lng', 'airlines_id', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'countries_id', 'coords', 'airlines_id', 'created_at', 'updated_at'];
 
-}
+
+    public function country(){
+        return $this->belongsTo(Countries::class, 'countries_id');
+    }
+ }

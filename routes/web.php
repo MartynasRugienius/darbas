@@ -4,6 +4,9 @@ use App\Http\Controllers\Airlines;
 use App\Http\Controllers\Countries;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Views;
+use App\Models\Airlines as ModelsAirlines;
+use App\Models\Airports;
+use App\Models\Countries as ModelsCountries;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +18,11 @@ use App\Http\Controllers\Views;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/airliness', function(){
+    return response()->json(['country' => ModelsCountries::all(), 'airline' => ModelsAirlines::all()]);
+});
+
 
 Route::get('/', [Views::class, "index"]);
 
@@ -74,5 +82,13 @@ Route::post('/airlines/add', [Airlines::class, "create"]);
 Route::post('airlines/update/{id}', [Airlines::class, "update"]);
 
 Route::post('/airlines/delete/{id}', [Airlines::class, "delete"]);
+
+
+
+Route::post('/airports/add', [Airports::class, "create"]);
+
+Route::post('airports/update/{id}', [Airports::class, "update"]);
+
+Route::post('/airports/delete/{id}', [Airports::class, "delete"]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
