@@ -17,7 +17,7 @@
             <input class="form-control" name="name" type="text" placeholder="Name">
         </div>
         <div class="d-grid gap-2 mx-auto mt-2">
-            <select class="form-select" aria-label="Select country">
+            <select class="form-select" name="countries_id" aria-label="Select country">
                 <option selected>Select country</option>
             @foreach($countries as $country)
                 <option value="{{$country->id}}">{{$country->name}}</option>

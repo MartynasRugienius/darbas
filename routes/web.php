@@ -1,12 +1,11 @@
 <?php
 
 use App\Http\Controllers\Airlines;
+use App\Http\Controllers\Airports;
 use App\Http\Controllers\Countries;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Views;
-use App\Models\Airlines as ModelsAirlines;
-use App\Models\Airports;
-use App\Models\Countries as ModelsCountries;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +18,6 @@ use App\Models\Countries as ModelsCountries;
 |
 */
 
-Route::get('/airliness', function(){
-    return response()->json(['country' => ModelsCountries::all(), 'airline' => ModelsAirlines::all()]);
-});
 
 
 Route::get('/', [Views::class, "index"]);
@@ -32,11 +28,11 @@ Route::get('/airports/add', [Views::class, "add_airports"]);
 
 Route::get('/airports/edit', [Views::class, "edit_airports"]);
 
-Route::get('/airports/removeAirline', [Views::class, "remove_airlines"]);
+Route::get('/airports/removeAirline/{id}', [Views::class, "remove_airlines"]);
 
 Route::get('/airports/delete', [Views::class, "delete_airports"]);
 
-Route::get('/airports/newAirline', [Views::class, "add_airlines"]);
+Route::get('/airports/newAirline/{id}', [Views::class, "add_airlines"]);
 
 
 
@@ -90,5 +86,11 @@ Route::post('/airports/add', [Airports::class, "create"]);
 Route::post('airports/update/{id}', [Airports::class, "update"]);
 
 Route::post('/airports/delete/{id}', [Airports::class, "delete"]);
+
+Route::post('/airports/airline/{id}', [Airports::class, "airline"]);
+
+Route::post('/airports/airlineremove/{id}', [Airports::class, "airliner"]);
+
+Route::post('/airports/search/', [Airports::class, "search"]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

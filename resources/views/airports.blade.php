@@ -5,16 +5,20 @@
     <a class="btn btn-danger" href="/airports/add" role="button">New airport</a>
   </div>
   <hr>
-  <form action="" method="GET"></form>
+  <form action="/airports/search/" method="POST">
+    @csrf
     <div class="d-grid gap-2 col-6 mx-auto mt-2">
-      <select class="form-select" aria-label="Search by country">
-        <option selected>Search by country</option>
-        <option value="1">Lithuania</option>
+      <select class="form-select" name="id" aria-label="Search by country">
+        <option selected value="0">Search by country</option>
+        @foreach($countries as $country)
+        <option value="{{$country->id}}">{{$country->name}}</option>
+        @endforeach
       </select>
+      <div class="d-grid gap-2 col-1 mx-auto mt-2">
+        <button class="btn btn-success" type="submit">Search</button>
+      </div>
     </div>
-  <div class="d-grid gap-2 col-1 mx-auto mt-2">
-    <button class="btn btn-success" type="button">Search</button>
-  </div>
+  </form>
   <hr>
   <div class="d-grid gap-2 mx-auto mt-2">
     <table class="table table-dark table-striped">
@@ -34,11 +38,13 @@
           <td>{{$airport->country->name}}</td>
           <td>{{$airport->coords}}</td>
           <td>
-            Vilius airlines
+            @if ($airport->airline !== null)
+                {{$airport->airline->name}}
+            @endif
           </td>
           <td>
-            <a class="btn btn-success" href="/airports/newAirline" role="button">Add airline</a>
-            <a class="btn btn-danger" href="/airports/removeAirline" role="button">Remove airline</a>
+            <a class="btn btn-success" href="/airports/newAirline/{{$airport->id}}"  role="button">Add airline</a>
+            <a class="btn btn-danger" href="/airports/removeAirline/{{$airport->id}}" role="button">Remove airline</a>
             <a class="btn btn-warning" href="/airports/edit/{{$airport->id}}" role="button">Edit</a>
             <a class="btn btn-danger" href="/airports/delete/{{$airport->id}}" role="button">Delete</a>
           </td>

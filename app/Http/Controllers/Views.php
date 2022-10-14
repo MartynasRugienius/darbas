@@ -18,7 +18,9 @@ class Views extends Controller
 
         $airports = Airports::all();
 
-        return view("airports", ['airports' => $airports]);
+        $countries = Countries::all();
+
+        return view("airports", ['airports' => $airports, 'countries' => $countries]);
     }
 
     public function countries(){
@@ -45,8 +47,9 @@ class Views extends Controller
     public function add_airports(){
 
         $countries = Countries::all();
+        $airlines = Airlines::all();
 
-        return view("add_airports", ['countries' => $countries]);
+        return view("add_airports", ['countries' => $countries, 'airlines' => $airlines]);
     }
 
     public function edit_airports($id){
@@ -56,12 +59,20 @@ class Views extends Controller
         return view("edit_airports", ['airports' => $airports, 'countries' => $countries]);
     }
 
-    public function remove_airlines(){
-        return view("remove_airlines");
+    public function remove_airlines($id){
+
+        $airport = Airports::find($id);
+
+        return view("remove_airlines", ['id' => $id, 'airport' => $airport]);
     }
 
-    public function add_airlines(){
-        return view("add_airlines");
+    public function add_airlines($id){
+
+        $airlines = Airlines::all();
+
+        $airports = Airports::all();
+
+        return view("add_airlines", ['id' => $id, 'airlines' => $airlines, 'airports' => $airports]);
     }
 
     public function delete_airports($id){
