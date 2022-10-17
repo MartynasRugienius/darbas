@@ -26,11 +26,11 @@ Route::get('/airports', [Views::class, "airports"]);
 
 Route::get('/airports/add', [Views::class, "add_airports"]);
 
-Route::get('/airports/edit', [Views::class, "edit_airports"]);
+Route::get('/airports/edit/{id}', [Views::class, "edit_airports"]);
 
 Route::get('/airports/removeAirline/{id}', [Views::class, "remove_airlines"]);
 
-Route::get('/airports/delete', [Views::class, "delete_airports"]);
+Route::get('/airports/delete/{id}', [Views::class, "delete_airports"]);
 
 Route::get('/airports/newAirline/{id}', [Views::class, "add_airlines"]);
 
@@ -54,9 +54,9 @@ Route::get('/countries/delete/{id}', [Views::class, "delete_countries"]);
  /**
   * Post methods
   */
-Route::post('/country/update/{id}', [Countries::class, "update"]);
+Route::post('/countries/update/{id}', [Countries::class, "update"]);
 
-Route::post('/country/delete/{id}', [Countries::class, "delete"]);
+Route::post('/countries/delete/{id}', [Countries::class, "delete"]);
 
 Route::post('/add_countries',[Countries::class, "create"]);
 
@@ -83,7 +83,7 @@ Route::post('/airlines/delete/{id}', [Airlines::class, "delete"]);
 
 Route::post('/airports/add', [Airports::class, "create"]);
 
-Route::post('airports/update/{id}', [Airports::class, "update"]);
+Route::post('/airports/update/{id}', [Airports::class, "update"]);
 
 Route::post('/airports/delete/{id}', [Airports::class, "delete"]);
 
@@ -92,5 +92,9 @@ Route::post('/airports/airline/{id}', [Airports::class, "airline"]);
 Route::post('/airports/airlineremove/{id}', [Airports::class, "airliner"]);
 
 Route::post('/airports/search/', [Airports::class, "search"]);
+
+Route::get('/countries/noAirlines', [Views::class, "noAirlines"]);
+
+Route::get('/countries/noAirlinesCountries', [Views::class, "noAirlinesAirports"]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

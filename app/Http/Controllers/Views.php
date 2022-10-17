@@ -116,6 +116,36 @@ class Views extends Controller
         return view("create_airlines", ['countries' => $countries]);
     }
 
+    public function noAirlines(){
+        try {
+            $Countries = Countries::all();
+            $arr = array();
+            foreach ($Countries as $country){
+                if($country->airlines->count() === 0){
+                    array_push($arr, $country);
+                }
+            } 
+            return view('countries', ['countries' => $arr]);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
+    }
+
+
+    public function noAirlinesAirports(){
+        try {
+            $Countries = Countries::all();
+            $arr = array();
+            foreach ($Countries as $country){
+                if($country->airlines->count() === 0 && $country->airports->count() === 0){
+                    array_push($arr, $country);
+                }
+            } 
+            return view('countries', ['countries' => $arr]);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage());
+        }
+    }
 
 
 }

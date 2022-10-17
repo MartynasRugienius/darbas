@@ -35,7 +35,11 @@
         @foreach ($airports as $airport)
         <tr>
           <th scope="row">{{$airport->name}}</th>
-          <td>{{$airport->country->name}}</td>
+          <td>
+            @if ($airport->country !== null)
+                {{$airport->country->name}}
+            @endif
+          </td>
           <td>{{$airport->coords}}</td>
           <td>
             @if ($airport->airline !== null)

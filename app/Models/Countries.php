@@ -16,4 +16,8 @@ class Countries extends Model
     public function airlines(){
         return $this->hasMany(Airlines::class, 'countries_id');
     }
+
+    public function airports(){
+        return $this->hasMany(Airports::class);
+    }
 }

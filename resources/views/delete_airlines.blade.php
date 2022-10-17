@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid mt-3">
     <div class="text-center">
-        <h1>Are you sure you want to delete Vilius airlines, Lithuania airline?</h1>
+        <h1>Are you sure you want to delete this airline, Lithuania airline?</h1>
         <p>This action will remove all associations with airports</p>
     </div>
     <hr>

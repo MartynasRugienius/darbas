@@ -2,9 +2,9 @@
 @section('content')
 <div class="container-fluid mt-3">
     <div class="text-center">
-        <a class="btn btn-danger" href="countries/new" role="button">New country</a>
-        <a class="btn btn-danger" href="" role="button">Countries without airlines</a>
-        <a class="btn btn-danger" href="" role="button">Countries without airlines and airports</a>
+        <a class="btn btn-danger" href="/countries/new" role="button">New country</a>
+        <a class="btn btn-danger" href="/countries/noAirlines" role="button">Countries without airlines</a>
+        <a class="btn btn-danger" href="/countries/noAirlinesCountries" role="button">Countries without airlines and airports</a>
     </div>
     <hr>
     <div class="d-grid gap-2 mx-auto mt-2">
