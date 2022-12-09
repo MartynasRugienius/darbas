@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('airlines', function (Blueprint $table) {
+        Schema::create('skateboards', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('countries_id');
+            $table->string('image');
+            $table->string('description');
             $table->timestamps();
         });
     }

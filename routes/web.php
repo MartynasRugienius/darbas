@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\Airlines;
-use App\Http\Controllers\Airports;
-use App\Http\Controllers\Countries;
+use App\Http\Controllers\Skateboards;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Views;
 
@@ -22,79 +20,20 @@ use App\Http\Controllers\Views;
 
 Route::get('/', [Views::class, "index"]);
 
-Route::get('/airports', [Views::class, "airports"]);
+Route::get('/skateboards', [Views::class, "skateboards"]);
 
-Route::get('/airports/add', [Views::class, "add_airports"]);
+Route::get('/skateboards/add', [Views::class, "add_skateboards"]);
 
-Route::get('/airports/edit/{id}', [Views::class, "edit_airports"]);
+Route::get('/skateboards/edit/{id}', [Views::class, "edit_skateboards"]);
 
-Route::get('/airports/removeAirline/{id}', [Views::class, "remove_airlines"]);
+Route::get('/skateboards/delete/{id}', [Views::class, "delete_skateboards"]);
 
-Route::get('/airports/delete/{id}', [Views::class, "delete_airports"]);
+Route::get('/login', [Views::class, "login"]);
 
-Route::get('/airports/newAirline/{id}', [Views::class, "add_airlines"]);
+Route::post('/skateboards/add', [Skateboards::class, "create"]);
 
+Route::post('/skateboards/update/{id}', [Skateboards::class, "update"]);
 
-
-
-Route::get('/countries', [Views::class, "countries"]);
-
-Route::get('/countries/new', [Views::class, "add_countries"]);
-
-Route::get('/countries/edit/{id}', [Views::class, "edit_countries"]);
-
-Route::get('/countries/delete/{id}', [Views::class, "delete_countries"]);
-
-
-
-/**
- * Route {id} tai yra tas kur mes turim funkcijoje papildoma variable pavadinimu id
- */
-
- /**
-  * Post methods
-  */
-Route::post('/countries/update/{id}', [Countries::class, "update"]);
-
-Route::post('/countries/delete/{id}', [Countries::class, "delete"]);
-
-Route::post('/add_countries',[Countries::class, "create"]);
-
-
-
-
-Route::get('/airlines', [Views::class, "airlines"]);
-
-Route::get('/airlines/new', [Views::class, "create_airlines"]);
-
-Route::get('/airlines/edit/{id}', [Views::class, "edit_airlines"]);
-
-Route::get('/airlines/delete/{id}', [Views::class, "delete_airlines"]);
-
-// Auth::routes();
-
-Route::post('/airlines/add', [Airlines::class, "create"]);
-
-Route::post('airlines/update/{id}', [Airlines::class, "update"]);
-
-Route::post('/airlines/delete/{id}', [Airlines::class, "delete"]);
-
-
-
-Route::post('/airports/add', [Airports::class, "create"]);
-
-Route::post('/airports/update/{id}', [Airports::class, "update"]);
-
-Route::post('/airports/delete/{id}', [Airports::class, "delete"]);
-
-Route::post('/airports/airline/{id}', [Airports::class, "airline"]);
-
-Route::post('/airports/airlineremove/{id}', [Airports::class, "airliner"]);
-
-Route::post('/airports/search/', [Airports::class, "search"]);
-
-Route::get('/countries/noAirlines', [Views::class, "noAirlines"]);
-
-Route::get('/countries/noAirlinesCountries', [Views::class, "noAirlinesAirports"]);
+Route::post('/skateboards/delete/{id}', [Skateboards::class, "delete"]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
